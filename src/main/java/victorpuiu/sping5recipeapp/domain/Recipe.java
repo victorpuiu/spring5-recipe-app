@@ -3,6 +3,8 @@ package victorpuiu.sping5recipeapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Recipe {
     @Id
@@ -17,6 +19,9 @@ public class Recipe {
     private String direction;
 
 //    private Difficulty difficulty;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
     @Lob
     private Byte[] image;
 
