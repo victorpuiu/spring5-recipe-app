@@ -18,6 +18,13 @@ public class Recipe {
     private String url;
     private String direction;
 
+    @ManyToMany
+    @JoinTable(name = "recipe_category",
+        joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories;
+
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
 
@@ -28,6 +35,7 @@ public class Recipe {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
+
 
     public Long getId() {
         return id;
@@ -91,6 +99,14 @@ public class Recipe {
 
     public void setDirection(String direction) {
         this.direction = direction;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public Difficulty getDifficulty() {
