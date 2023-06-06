@@ -18,6 +18,8 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
+
+
     public Long getId() {
         return id;
     }
