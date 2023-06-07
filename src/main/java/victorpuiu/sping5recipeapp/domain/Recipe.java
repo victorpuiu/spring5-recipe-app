@@ -1,6 +1,5 @@
 package victorpuiu.sping5recipeapp.domain;
 
-
 import jakarta.persistence.*;
 
 import java.util.Set;
