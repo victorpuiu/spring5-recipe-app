@@ -3,6 +3,7 @@ package victorpuiu.sping5recipeapp.bootstrap;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import victorpuiu.sping5recipeapp.domain.Category;
 import victorpuiu.sping5recipeapp.domain.Recipe;
 import victorpuiu.sping5recipeapp.domain.UnitOfMeasure;
 import victorpuiu.sping5recipeapp.repositories.CategoryRepository;
@@ -75,6 +76,18 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         //get categories
 
+        Optional<Category> americanCategoryOptional = categoryRepository.findByDescription("American");
+        if (!americanCategoryOptional.isPresent()){
+            throw new RuntimeException("Expected category not found");
+        }
+
+        Optional<Category> mexicanCategoryOptional = categoryRepository.findByDescription("Mexican");
+        if (!mexicanCategoryOptional.isPresent()){
+            throw new RuntimeException("Expected category not found");
+        }
+
+        Category americanCategory = americanCategoryOptional.get();
+        Category mexicanCategory = mexicanCategoryOptional.get();
 
 
 
