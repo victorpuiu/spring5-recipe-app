@@ -11,7 +11,6 @@ import victorpuiu.sping5recipeapp.services.RecipeService;
 public class IndexController {
 
     private final RecipeService recipeService;
-
     public IndexController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
