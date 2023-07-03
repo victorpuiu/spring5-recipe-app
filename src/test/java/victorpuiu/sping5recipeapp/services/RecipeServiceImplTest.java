@@ -39,7 +39,7 @@ public class RecipeServiceImplTest {
         Recipe recipeReturned = recipeService.findById(1L);
 
         assertNotNull("Null recipe result", recipeReturned);
-        verify(recipeRepository, times(1, findById(anyLong())));
+        verify(recipeRepository, times(1)).findById(anyLong());
         verify(recipeRepository, never()).findAll();
 
     }
